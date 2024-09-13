@@ -1,1 +1,1 @@
-"# CS471" 
+A repo for CS471 lab assignments, made by Fahad Alsunedi.
