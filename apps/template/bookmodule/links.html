@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Links Page</title>
+    {% load static %}
+    <!-- Linking external CSS correctly with Django's static tag -->
+    <link href="{% static 'style.css' %}" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Link to open in new tab -->
+    <a href="https://myqu.qu.edu.sa" class="link new-tab" target="_blank">Go to QU website (open a new tab)</a>
+
+    <!-- Link to open in same tab -->
+    <a href="https://myqu.qu.edu.sa" class="link same-tab">Go to QU website (open in the same page/tab)</a>
+
+    <!-- Another link with different styling -->
+    <a href="https://myqu.qu.edu.sa" class="link another-tab">Go to QU website (open in the same page/tab)</a>
+
+</body>
+</html>
