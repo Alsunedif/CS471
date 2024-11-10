@@ -1,110 +1,17 @@
-a.link {
-    display: block;
-    padding: 20px;
-    text-align: center;
-    text-decoration: none;
-    font-size: 18px;
-    font-family: Arial, sans-serif;
+.topnav {
+ background-color: #eeeeee;
+ width: 100%;
 }
 
-a.new-tab {
-    background-color: #ccffcc;
-    color: red;
+/* Style the links inside the navigation bar */
+.topnav a {
+ color: #000000;
+ text-align: center;
+ margin-right: 25px;
+ text-decoration: none;
+ font-size: 17px;
 }
-
-a.same-tab {
-    background-color: #666666;
-    color: orange;
+/* Add a color to the active/current link */
+.topnav a.active{
+ color: #008CBA;
 }
-
-a.another-tab {
-    background-color: #000000;
-    color: white;
-}
-
-/*states*/
-a:hover {
-    opacity: 0.8;
-}
-
-a:visited {
-    color: purple;
-}
-
-a:active {
-    color: blue;
-}
-
-
-.formatting-heading {
-    background-color: #eef1d1;
-    color: green;
-    text-align: center;
-    padding: 10px;
-    font-size: 24px;
-    font-family: Arial, sans-serif;
-}
-
-
-p {
-    font-size: 18px;
-    line-height: 1.6;
-    font-family: Arial, sans-serif;
-    margin-left: 20px;
-}
-
-
-
-.listing-heading {
-    background-color: #5d8c85;
-    color: white;
-    text-align: center;
-    padding: 10px;
-    font-size: 24px;
-    font-family: Arial, sans-serif;
-}
-
-/*list*/
-ul, ol {
-    font-size: 18px;
-    line-height: 1.8;
-    margin-left: 40px;
-    font-family: Arial, sans-serif;
-}
-
-ul li, ol li {
-    margin-bottom: 8px;
-}
-/*table */
-table {
-    border-collapse: collapse;
-    width: 10%;
-    margin: 20px 0;
-    text-align: center;
-}
-
-th, td {
-    border: 1px solid black;
-    padding: 8px;
-}
-
-th {
-    font-weight: bold;
-}
-
-tfoot td {
-    font-weight: bold;
-}
-
-.table-wrapper {
-    display: flex;
-    align-items: center;
-}
-
-.desert-image {
-    width: 200px;
-    height: auto;
-    margin-right: 20px;
-}
-
-
