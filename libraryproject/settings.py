@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'apps.bookmodule',
     'apps.usermodule',
+
 ]
 
 MIDDLEWARE = [
@@ -121,6 +122,14 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 STATICFILES_DIRS = [(os.path.join(BASE_DIR, "apps/static"))]
+
+# set up media root
+# this folder should be outside your app directory
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, "media")
+
+LOGIN_URL = '/users/login/'
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field

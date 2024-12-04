@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Task 1</title>
+</head>
+<body>
+    <button id="changeColorButton">Change Background Color</button>
+    <button id="changeTextButton">Change Text</button>
+    <div id="contentDiv" style="width: 200px; height: 100px; border: 1px solid black;">
+        السلام عليكم
+    </div>
+
+    <script>
+        document.getElementById("changeColorButton").addEventListener("click", function() {
+            document.getElementById("contentDiv").style.backgroundColor = "yellow";
+        });
+
+        document.getElementById("changeTextButton").addEventListener("click", function() {
+            document.getElementById("contentDiv").innerText = "مع السلامة";
+        });
+    </script>
+</body>
+</html>

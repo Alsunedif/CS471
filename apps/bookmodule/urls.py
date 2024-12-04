@@ -33,7 +33,29 @@ urlpatterns = [
     path('lab9_part2/listBooks', views.list_books, name='books.list_books'),
     path('lab9_part2/addBook/', views.add_book, name='books.add_book'),
     path('lab9_part2/editBook/<int:bookId>/', views.edit_book, name='books.edit_book'),
-    path('lab9_part2/deleteBook/<int:bookId>/', views.delete_book, name='books.delete_book')
+    path('lab9_part2/deleteBook/<int:bookId>/', views.delete_book, name='books.delete_book'),
+
+    ##lab 10
+    path('students/', views.student_list, name='books.students.list'),
+    path('students/add/', views.student_add, name='books.students.add'),
+    path('students/edit/<int:id>/', views.student_edit, name='books.students.edit'),
+    path('students/delete/<int:id>/', views.student_delete, name='books.students.delete'),
+
+    path('students2/', views.student2_list, name='books.students2.list'),
+    path('students2/add/', views.student2_add, name='books.students2.add'),
+    path('students2/edit/<int:id>/', views.student2_edit, name='books.students2.edit'),
+    path('students2/delete/<int:id>/', views.student2_delete, name='books.students2.delete'),
+
+    path('images/', views.images, name='books.images'),
+    path('images/add/', views.images_add, name='books.images.add'),
+
+    #lab 12
+
+    path('lab12/task1', views.lab_task1, name="books.task1"),
+    path('lab12/task2', views.lab_task2, name="books.task2"),
+    path('lab12/task3', views.lab_task3, name="books.task3"),
+    path('lab12/task4', views.lab_task4, name="books.task4")
+
 
 ]
 

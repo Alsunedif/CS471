@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Task 2</title>
+</head>
+<body>
+    <button id="addItemButton">Add Item</button>
+    <ul id="itemList">
+        </ul>
+    <script>
+        document.getElementById("addItemButton").addEventListener("click", function() {
+            const newItem = document.createElement("li");
+            newItem.textContent = ` ${document.getElementById("itemList").children.length + 1}`;
+            document.getElementById("itemList").appendChild(newItem);
+        });
+    </script>
+</body>
+</html>

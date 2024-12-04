@@ -15,12 +15,19 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path,include
+from django.urls import path, include
+from django.conf import settings
+from django.conf.urls.static import static
 import apps.bookmodule.views
 
+# main urls.py, add the following to the end of file
+# this allow Django to access the media files while in production
+# in production (ie. in this server), this should be disabled
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('books/', include("apps.bookmodule.urls")),
     path('users/', include("apps.usermodule.urls")),
 ]
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -1,0 +1,7 @@
+<h1>Gallery</h1>
+<a href="{% url 'books.images.add' %}">Add Image</a>
+<ul>
+    {% for img in images %}
+    <li>{{ img.description }}<br><img src="{{ img.image.url }}" alt="{{ img.description }}" width="200"></li>
+    {% endfor %}
+</ul>

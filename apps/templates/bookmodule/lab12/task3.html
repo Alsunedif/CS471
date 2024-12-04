@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Task 3</title>
+</head>
+<body>
+    <button id="toggleButton">Open</button>
+    <div id="toggleDiv" style="width: 200px; height: 100px; border: 1px solid black; display: block;">
+        Close
+    </div>
+
+    <script>
+        document.getElementById("toggleButton").addEventListener("click", function() {
+            const toggleDiv = document.getElementById("toggleDiv");
+            if (toggleDiv.style.display === "none") {
+                toggleDiv.style.display = "block";
+            } else {
+                toggleDiv.style.display = "none";
+            }
+        });
+    </script>
+</body>
+</html>

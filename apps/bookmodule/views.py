@@ -1,8 +1,12 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from .models import Book
+from .models import *
 from django import forms
-from .forms import BookForm
+from .forms import *
 from django.db.models import Count, Sum, Avg, Max, Min, Q
+from django.contrib.auth.forms import UserCreationForm , AuthenticationForm
+from django.contrib import messages
+from django.contrib.auth import authenticate, login
+from django.contrib.auth.decorators import login_required
 
 def index2(request, val1 = 0):
     return render(request, "bookmodule/index2.html", {"value":val1})
@@ -69,7 +73,7 @@ def complex_query(request):
         return render(request, 'bookmodule/index.html')
 
 def task1(request):
-    books = Book.objects.filter(price__lte=50)  # Books with price ≤ 50
+    books = Book.objects.filter(price__lte=50    )  # Books with price ≤ 50
     return render(request, 'bookmodule/task1.html', {'books': books})
 
 def task2(request):
@@ -127,7 +131,7 @@ def editBook(request, id):
 def deleteBook(request, id):
     book = get_object_or_404(Book, id=id)
     book.delete()
-    return redirect('lbooks.istBooks')
+    return redirect('books.istBooks')
 
 
 
@@ -166,4 +170,100 @@ def delete_book(request, bookId):
         book.delete()
         return redirect('books.list_books')
     return render(request, 'bookmodule/book_confirm_delete.html', {'book': book})
+
+
+
+
+def student_list(request):
+    students = Student.objects.select_related('address').all()
+    return render(request, 'bookmodule/students/student_list.html', {'students': students})
+
+
+def student_add(request):
+    if request.method == 'POST':
+        form = StudentForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('books.students.list')
+    else:
+        form = StudentForm()
+    return render(request, 'bookmodule/students/student_form.html', {'form': form})
+
+@login_required
+def student_edit(request, id):
+    student = get_object_or_404(Student, pk=id)
+    if request.method == 'POST':
+        form = StudentForm(request.POST, instance=student)
+        if form.is_valid():
+            form.save()
+            return redirect('books.students.list')
+    else:
+        form = StudentForm(instance=student)
+    return render(request, 'bookmodule/students/student_form.html', {'form': form})
+
+
+def student_delete(request, id):
+    student = get_object_or_404(Student, pk=id)
+    student.delete()
+    return redirect('books.students.list')
+
+
+
+def student2_list(request):
+    students = Student2.objects.prefetch_related('addresses').all()
+    return render(request, 'bookmodule/students/student2_list.html', {'students': students})
+
+
+def student2_add(request):
+    if request.method == 'POST':
+        form = Student2Form(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('books.students2.list')
+    else:
+        form = Student2Form()
+    return render(request, 'bookmodule/students/student2_form.html', {'form': form})
+
+@login_required
+def student2_edit(request, id):
+    student = get_object_or_404(Student2, pk=id)
+    if request.method == 'POST':
+        form = Student2Form(request.POST, instance=student)
+        if form.is_valid():
+            form.save()
+            return redirect('books.students2.list')
+    else:
+        form = Student2Form(instance=student)
+    return render(request, 'bookmodule/students/student2_form.html', {'form': form})
+
+
+def student2_delete(request, id):
+    student = get_object_or_404(Student2, pk=id)
+    student.delete()
+    return redirect('books.students2.list')
+
+
+def images(request):
+    images = Images.objects.all()
+    return render(request, 'bookmodule/students/images.html', {'images': images})
+
+
+def images_add(request):
+    if request.method == 'POST':
+        form = ImagesForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return redirect('books.images')
+    else:
+        form = ImagesForm()
+    return render(request, 'bookmodule/students/add.html', {'form': form})
+
+def lab_task1(request):
+    return render(request,'bookmodule/lab12/task1.html')
+def lab_task2(request):
+    return render(request,'bookmodule/lab12/task2.html')
+def lab_task3(request):
+    return render(request,'bookmodule/lab12/task3.html')
+def lab_task4(request):
+    return render(request,'bookmodule/lab12/task4.html')
 

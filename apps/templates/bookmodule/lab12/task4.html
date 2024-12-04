@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Task 4</title>
+</head>
+<body>
+    <div id="hoverDiv" style="width: 1250px; height: 600px; border: 1px solid black;">
+        Hover
+    </div>
+
+    <script>
+        const hoverDiv = document.getElementById("hoverDiv");
+
+        hoverDiv.addEventListener("mouseover", function() {
+            hoverDiv.style.backgroundColor = "yellow";
+            hoverDiv.style.fontSize = "500px";
+        });
+
+        hoverDiv.addEventListener("mouseout", function() {
+            hoverDiv.style.backgroundColor = "";
+            hoverDiv.style.fontSize = "";
+
+        });
+    </script>
+</body>
+</html>
